@@ -10,7 +10,7 @@ class Pitch(db.Model):
     category = db.Column(db.String)
     upvote=db.relationship('Upvote',backref='pitch',lazy='dynamic')
     downvote=db.relationship('Downvote',backref='pitch',lazy='dynamic')
-    comment=db.relationship('comment',backref='pitch',lazy='dynamic')
+    # comment=db.relationship('comment',backref='pitch',lazy='dynamic')
 
 
     
@@ -38,3 +38,18 @@ class Upvote(db.Model):
     def get_upvotes(cls,id):
         upvotes = Pitch.query.filter_by(pitch_id=id).all()
         return upvotes
+
+class Downvote(db.Model):
+    __tablename__='downvotes'
+
+    id = db.Column(db.Integer,primary_key = True)
+    pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'))
+
+    def save_downvote(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_downvotes(cls,id):
+        downvotes = Pitch.query.filter_by(pitch_id=id).all()
+        return downvotes
