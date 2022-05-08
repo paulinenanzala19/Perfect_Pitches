@@ -2,7 +2,15 @@
 
 {% import 'macros.html' as macro %}
 
+{% block styles%}
+    {{ super() }}
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+    integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+{% endblock %}
+
+
 <title>{{ title }}</title>
+
 
 {% block content%}
 <div class="row">
@@ -13,7 +21,11 @@
         <hr>
         <p>Make it short. · Make it clear. · Explain who your customers are. · Explain the problem
             they're facing. </p>
-        <a href="{{url_for('main.business_pitches')}}" class="btn btn-info -center">Click to view</a>
+        <button><a href=""><i class="fa fa-thumbs-up" style="font-size:18px;color: green"></i></a></button>
+        <button><a href=""><i class="fa fa-thumbs-down" style="font-size:18px;color: red"></i></a></button>
+        <br>
+
+        <a href="{{url_for('main.business_pitches')}}" class="btn btn-info -center" style="margin-top: 2%;">Click to view</a>
        
     </div>
 
@@ -26,7 +38,12 @@
         <hr>
         <p>Make it short. · Make it clear. · Explain who your customers are. · Explain the problem
             they're facing. </p>
-        <a href="{{url_for('main.business_pitches')}}" class="btn btn-info -center">Click to view</a>
+
+        <button><a href=""><i class="fa fa-thumbs-up" style="font-size:18px;color: green"></i></a></button>
+        <button><a href=""><i class="fa fa-thumbs-down" style="font-size:18px;color: red"></i></a></button>
+        <br>
+    
+        <a href="{{url_for('main.business_pitches')}}" class="btn btn-info -center" style="margin-top: 2%;">Click to view</a>
        
     </div>
 </div>
@@ -42,7 +59,12 @@
         <hr>
         <p>Make it short. · Make it clear. · Explain who your customers are. · Explain the problem
             they're facing. </p>
-        <a href="{{url_for('main.business_pitches')}}" class="btn btn-info -center">Click to view</a>
+
+        <button><a href=""><i class="fa fa-thumbs-up" style="font-size:18px;color: green"></i></a></button>
+        <button><a href=""><i class="fa fa-thumbs-down" style="font-size:18px;color: red"></i></a></button>
+        <br>
+
+        <a href="{{url_for('main.business_pitches')}}" class="btn btn-info -center" style="margin-top:2% ;">Click to view</a>
        
     </div>
 
@@ -55,11 +77,12 @@
         <hr>
         <p>Make it short. · Make it clear. · Explain who your customers are. · Explain the problem
             they're facing. </p>
-            
-        <span class="foot" ><a href="{{url_for('main.like',id = category.id)}}"><i class="fa fa-thumbs-up" style="font-size:18px;color: green"></i></a> {{category.upvote.count()}}</span>
-        <span class="foot" ><a href="{{url_for('main.like',id = category.id)}}"><i class="fa fa-thumbs-up" style="font-size:18px;color: green"></i></a> {{category.upvote.count()}}</span>
+        
+        <button><a href=""><i class="fa fa-thumbs-up" style="font-size:18px;color: green"></i></a></button>
+        <button><a href=""><i class="fa fa-thumbs-down" style="font-size:18px;color: red"></i></a></button>
+        <br>
 
-        <a href="{{url_for('main.business_pitches')}}" class="btn btn-info -center">Click to view</a>
+        <a href="{{url_for('main.business_pitches')}}" class="btn btn-info -center" style="margin-top:2% ;">Click to view</a>
        
     </div>
 </div>
