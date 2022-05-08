@@ -1,3 +1,5 @@
+from . import db
+
 class Pitch(db.Model):
     __tablename__ = 'pitches'
 
