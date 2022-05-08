@@ -1,10 +1,13 @@
-{% extends 'bootstrap/base.html'%}
+{% extends 'base.html'%}
 
 {% import 'macros.html' as macro %}
 
-<title>perfect pitches</title>
+<title>{{ title }}</title>
 
-<div class="col-md-4" style="text-align: center;">
+{% block content%}
+<div class="row">
+    <div class="col-md-1"></div>
+<div class="col-md-5" style="text-align: center;">
     <div class="well well-lg">
         <h3>Business Pitches</h3>
         <hr>
@@ -13,4 +16,51 @@
         <a href="{{url_for('main.business_pitches')}}" class="btn btn-info -center">Click to view</a>
        
     </div>
+
+    
 </div>
+
+<div class="col-md-5" style="text-align: center;">
+    <div class="well well-lg">
+        <h3>Idea Pitches</h3>
+        <hr>
+        <p>Make it short. · Make it clear. · Explain who your customers are. · Explain the problem
+            they're facing. </p>
+        <a href="{{url_for('main.business_pitches')}}" class="btn btn-info -center">Click to view</a>
+       
+    </div>
+</div>
+<div class="col-md-1"></div>
+</div>
+
+</div>
+<div class="row">
+    <div class="col-md-1"></div>
+<div class="col-md-5" style="text-align: center;">
+    <div class="well well-lg">
+        <h3>Pickup Lines Pitches</h3>
+        <hr>
+        <p>Make it short. · Make it clear. · Explain who your customers are. · Explain the problem
+            they're facing. </p>
+        <a href="{{url_for('main.business_pitches')}}" class="btn btn-info -center">Click to view</a>
+       
+    </div>
+
+    
+</div>
+
+<div class="col-md-5" style="text-align: center;">
+    <div class="well well-lg">
+        <h3>Music Pitches</h3>
+        <hr>
+        <p>Make it short. · Make it clear. · Explain who your customers are. · Explain the problem
+            they're facing. </p>
+        <a href="{{url_for('main.business_pitches')}}" class="btn btn-info -center">Click to view</a>
+       
+    </div>
+</div>
+<div class="col-md-1"></div>
+</div>
+</div>
+
+{% endblock %}
