@@ -22,4 +22,18 @@ def business_pitches():
     pitches = Pitch.get_pitches('business')
 
     return render_template("business_pitches.html", pitches = pitches)
+
+@main.route('/pitches/idea_pitches')
+def idea_pitches():
+    pitches = Pitch.get_pitches('idea')
+    return render_template("idea_pitches.html", pitches = pitches)
     
+@main.route('/pitches/pickuplines_pitches')
+def idea_pitches():
+    pitches = Pitch.get_pitches('idea')
+    return render_template("pickuplines_pitches.html", pitches = pitches)
+
+@main.route('/pitches/music_pitches')
+def idea_pitches():
+    pitches = Pitch.get_pitches('idea')
+    return render_template("music_pitches.html", pitches = pitches)
