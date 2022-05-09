@@ -2,6 +2,7 @@ from flask import render_template
 from . import main
 from ..models import Pitch
 from .forms import PitchForm
+from flask_login import login_required
 
 @main.route('/')
 def index():
@@ -39,6 +40,7 @@ def music_pitches():
     pitches = Pitch.get_pitches('idea')
     return render_template("music_pitches.html", pitches = pitches)
 @main.route('/pitch/create', methods=['POST','GET'])
+@login_required
 def create_pitch():
     form=PitchForm()
     if form.validate_on_submit():
