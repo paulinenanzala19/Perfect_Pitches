@@ -1,8 +1,8 @@
-from flask import render_template
+from flask import render_template,request,redirect,url_for,abort
 from . import main
-from ..models import Pitch
+from ..models import Pitch,User
 from .forms import PitchForm
-from flask_login import login_required
+from flask_login import login_required,current_user
 
 @main.route('/')
 def index():
@@ -45,11 +45,21 @@ def create_pitch():
     form=PitchForm()
     if form.validate_on_submit():
         title = form.title.data
-        text = form.text.data
+        post = form.post.data
         category = form.category.data
+        user_id=current_user
         
         new_pitch_object = Pitch(post=post,user_id=current_user._get_current_object().id,category=category,title=title)
         new_pitch_object.save_pitch()
         return redirect(url_for('main.index'))
         
     return render_template('create_pitches.html', form = form)
+
+@main.route('/user/<uname>')
+def profile(uname):
+    user = User.query.filter_by(username = uname).first()
+
+    if user is None:
+        abort(404)
+
+    return render_template("profile/profile.html", user = user)

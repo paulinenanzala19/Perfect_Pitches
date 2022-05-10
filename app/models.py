@@ -9,7 +9,9 @@ class User(UserMixin,db.Model):
     id = db.Column(db.Integer,primary_key = True)
     username = db.Column(db.String(255))
     email = db.Column(db.String(255),unique = True,index = True)
-    password_hash = db.Column(db.String(255))
+    password_secure = db.Column(db.String(255))
+    bio = db.Column(db.String(255))
+    profile_pic_path = db.Column(db.String())
     pitches = db.relationship('Pitch', backref='user', lazy='dynamic')
     upvote = db.relationship('Upvote',backref='user',lazy='dynamic')
     downvote = db.relationship('Downvote',backref='user',lazy='dynamic')
@@ -20,27 +22,25 @@ class User(UserMixin,db.Model):
 
     @password.setter
     def password(self, password):
-        self.pass_secure = generate_password_hash(password)
+        self.password_secure = generate_password_hash(password)
 
 
     def verify_password(self,password):
-        return check_password_hash(self.pass_secure,password)
+        return check_password_hash(self.password_secure,password)
 
-    @login_manager.user_loader
-    def load_user(user_id):
-        return User.query.get(int(user_id))
+    def __repr__(self):
+        return f'User {self.username}'
 
-
+   
 class Pitch(db.Model):
     __tablename__ = 'pitches'
 
     id = db.Column(db.Integer,primary_key = True)
-    pitch_title = db.Column(db.String)
+    title = db.Column(db.String)
     pitch_content = db.Column(db.String(1000))
     category = db.Column(db.String)
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
-   
-
+    post = db.Column(db.Text(), nullable = False)
     upvote=db.relationship('Upvote',backref='pitch',lazy='dynamic')
     downvote=db.relationship('Downvote',backref='pitch',lazy='dynamic')
     # comment=db.relationship('comment',backref='pitch',lazy='dynamic')
@@ -74,6 +74,9 @@ class Upvote(db.Model):
         upvotes = Pitch.query.filter_by(pitch_id=id).all()
         return upvotes
 
+    def __repr__(self):
+        return f'{self.user_id}:{self.pitch_id}'
+
 class Downvote(db.Model):
     __tablename__='downvotes'
 
@@ -90,3 +93,7 @@ class Downvote(db.Model):
     def get_downvotes(cls,id):
         downvotes = Pitch.query.filter_by(pitch_id=id).all()
         return downvotes
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
