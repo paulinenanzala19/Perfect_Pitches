@@ -28,7 +28,7 @@ class User(UserMixin,db.Model):
 
     @login_manager.user_loader
     def load_user(user_id):
-    return User.query.get(int(user_id))
+        return User.query.get(int(user_id))
 
 
 class Pitch(db.Model):
@@ -38,6 +38,9 @@ class Pitch(db.Model):
     pitch_title = db.Column(db.String)
     pitch_content = db.Column(db.String(1000))
     category = db.Column(db.String)
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+   
+
     upvote=db.relationship('Upvote',backref='pitch',lazy='dynamic')
     downvote=db.relationship('Downvote',backref='pitch',lazy='dynamic')
     # comment=db.relationship('comment',backref='pitch',lazy='dynamic')
@@ -58,6 +61,8 @@ class Upvote(db.Model):
 
     id = db.Column(db.Integer,primary_key = True)
     pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'))
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+   
 
 
     def save_upvote(self):
@@ -74,6 +79,8 @@ class Downvote(db.Model):
 
     id = db.Column(db.Integer,primary_key = True)
     pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'))
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+   
 
     def save_downvote(self):
         db.session.add(self)
