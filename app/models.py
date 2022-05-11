@@ -15,6 +15,7 @@ class User(UserMixin,db.Model):
     pitches = db.relationship('Pitch', backref='user', lazy='dynamic')
     upvote = db.relationship('Upvote',backref='user',lazy='dynamic')
     downvote = db.relationship('Downvote',backref='user',lazy='dynamic')
+    comment = db.relationship('Comments', backref='user', lazy='dynamic')
 
     @property
     def password(self):
@@ -43,7 +44,7 @@ class Pitch(db.Model):
     post = db.Column(db.Text(), nullable = False)
     upvote=db.relationship('Upvote',backref='pitch',lazy='dynamic')
     downvote=db.relationship('Downvote',backref='pitch',lazy='dynamic')
-    # comment=db.relationship('comment',backref='pitch',lazy='dynamic')
+    comment=db.relationship('Comments',backref='pitch',lazy='dynamic')
 
 
     
@@ -93,6 +94,14 @@ class Downvote(db.Model):
     def get_downvotes(cls,id):
         downvotes = Pitch.query.filter_by(pitch_id=id).all()
         return downvotes
+
+class Comments(db.model):
+    __tablename__='comments'
+    id = db.Column(db.Integer,primary_key = True)
+    pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'))
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+    comment = db.Column(db.text())
+
 
 @login_manager.user_loader
 def load_user(user_id):

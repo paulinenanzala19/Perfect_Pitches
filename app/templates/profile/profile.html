@@ -24,16 +24,15 @@
 
           </div>
           <div class="image">
-            <form  action="{{url_for('main.update_pic',uname=user.username)}}" method="post" enctype = "multipart/form-data">
+            <form  action="{{url_for('main.upload_image',uname=user.username)}}" method="post" enctype = "multipart/form-data">
 
               <input type="file"  name="photo" class="form-control" required>
-              <input type="submit" class="btn btn-sm btn-outline-info">
+              <input type="submit" class="btn btn-sm btn-info">
             </form>
           </div>
 
         </div>
-         <a href="{{url_for('main.update_profile',uname=user.username)}}">Edit profile</a>
-         <button class="btn btn-sm btn-info" id="btn">upload image</button>
+         
         {% endif %}
         
         <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
