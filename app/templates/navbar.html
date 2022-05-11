@@ -9,21 +9,21 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">Pitch Perfect</a>
+                <a class="navbar-brand" href="/" style="color:lightblue; font-weight: bolder;">Pitch Perfect</a>
                 
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="/">All Pitches</a></li>
-                    <li><a href="{{url_for('main.create_pitch')}}">New Pitch</a></li>
+                    <li><a href="/" style="color:lightblue">All Pitches</a></li>
+                    <li><a href="{{url_for('main.create_pitch')}}" style="color:lightblue">New Pitch</a></li>
                 </ul>
                                 <ul class="nav navbar-nav navbar-right">
                   {% if current_user.is_authenticated %}
-                  <li style="color:white;padding:15px;">{{current_user.username}}</li>
-                  <li><a href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a></li>
-                  <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
+                  <li style="color:lightblue;padding:15px;">{{current_user.username}}</li>
+                  <li><a href="{{url_for('main.profile',uname=current_user.username)}}" style="color:lightblue"><i class="far fa-user"></i>&nbsp;My Account</a></li>
+                  <li><a href="{{url_for('auth.logout')}}"style="color:lightblue">Sign out</a></li>
                   {% else %}
-                  <li><a href="{{url_for('auth.login')}}"><i class="fas fa-sign-out-alt"></i>&nbsp; Sign in</a></li>
+                  <li><a href="{{url_for('auth.login')}}" style="color:lightblue"><i class="fas fa-sign-out-alt"></i>&nbsp; Sign in</a></li>
                   {%endif%}
                 </ul>   
                    
