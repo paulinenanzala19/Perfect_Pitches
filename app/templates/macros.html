@@ -10,6 +10,7 @@
             <a href="{{url_for('main.likes',id=category.id)}}"><i class="fa fa-thumbs-up" style="font-size:18px;color: #F6B400"></i>{{category.upvote.count()}}</a>  |
             <a href="{{url_for('main.dislikes',id=category.id)}}"><i class="fa fa-thumbs-down" style="font-size:18px;color: #F6B400"></i>{{category.downvote.count()}}</a>  |
             <a href="{{url_for('main.comment',pitch_id=category.id)}}"><i class="fas fa-comments" style="padding-left: 3%; cursor: pointer; color:#F6B400;;"></i>{{category.comment.count()}}</a>
+            <footer class="blockquote-footer text-center" style="color:#F6B400; font-style: italic;">~~ {{category.user.username}}</footer>
         </div>
     </div>
     

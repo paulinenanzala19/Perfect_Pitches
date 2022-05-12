@@ -1,31 +1,32 @@
 ## Pitch Perfect
+You want to pitch that idea out? pitch perfect got you!
 
 
 ## Author
 Pauline Wafula
 
 ## Description
-Pitch Perfect is a web application that allows a user to create a one minute pitch depending on the category of interest. a list of various news categories and sources. On clicking a news source, it will give you various choices. Clicking categories, it will give you various categories from health to sports etc. It achieves this by using the [News API](https://newsapi.org/).
+Pitch Perfect is a web application that allows a user to create a one minute pitch depending on the category of interest.It has four categories; business,idea,pickuplines and  music. On clicking on the click to view button, it displays pitches posted by other people on the same category.A new user can also log in\register to create a quote under category of choice and also comment on other people pitches.A user can also see the pitches posted through their profile.
 
 
 ## User Stories
 These are the behaviours/features that the application implements for use by a user.
 
 As a user I would like to:
-* See the headlines
-* Select the source of preference from CNN to ALJAZEERA
-* See the top news articles from the source
-* See the image,title, description and time the news article was created
-* click go to article button to read more about the news
+* See the categories of pitches displayed as cards
+* Select the category of preference from Business to Music
+* See pitches posted by other people under category of choice.
+* See the uploded profile image,option to edit my bio. 
+* click go to pitch to upvote,downvote or comment on the pitches posted. 
 
 ## Specifications
 | Behaviour | Input | Output |
 | :---------------- | :---------------: | ------------------: |
-| Display headlines  | **On page load** | List of various categories from health to sport with their title, description and time it was published |
-| Display tabs with news by category and sources | **On Tab Dropdownlink click** | Clickable links to open news based on category and sources |
-| Display articles from a  source | **Click a news source** | Redirected to a page with articles from the source |
-| Display the articles of a category | **On page load** | Each article displays an image,description and publication date of the specified category|
-| To Read an entire article  | **Click a go to article button** | Redirected to the  source's site to read the entire article |
+| Display categories  | **On page load** | List of various categories from business to music with their title and pitch |
+| Display page with pitches by category | **On clicking a 'click to view' button** | Clickable links to open pitches on the related category  |
+| Display pitches posted by other people | **Click an upvote,downvote or comment** | Redirected to a main page with an increase in one |
+| Display the comments from a related pitch | **On clicking comments button** | Displays all|
+| Registration/login required  | **** | Redirected to creating a pitch if you already have an account  |
 
 
 ## SetUp / Installation Requirements
@@ -37,7 +38,7 @@ As a user I would like to:
 ### Cloning
 * In your terminal:
 
-        $ git clone https://github.com/paulinenanzala19/News_API.git
+        $ git clone https://github.com/paulinenanzala19/Perfect_Pitches.git
         $ cd News
 
 ## Running the Application
@@ -52,20 +53,11 @@ As a user I would like to:
         $ python3.8  pip install flask
         $ python3.8  pip install flask-Bootstrap
         $ python3.8  pip install flask-Script
-
-* Setting up the API Key
-
-        To be able to gather article info from the News API you will need an API Key.
-
-        * Visit https://newsapi.org/ and register to generate an API key.
-        * In the root directory of the project folder create a file: start.sh
-        * Insert the following info into it:
-
-                export NEWS_API_KEY='<Your-Api-Key>'
-                export SECRET_KEY='<Your-secret-key>
-                python3.8 manage.py server
-
-        * Replace <Your-Api-Key> with your api key and <Your-secret-key> with your secret key
+        $ python3.8  pip install flask-migrate
+        $ python3.8  pip install flask-sqlalchemy
+        $ python3.8  pip install flask-Reuploded
+        $ python3.8  pip install flask-login
+        $ python3.8  pip install flask-WTF
 
 * To run the application, in your terminal:
 
@@ -75,7 +67,7 @@ As a user I would like to:
 ## Testing the Application
 * To run the tests for the class files:
 
-        $ python3.8 manage.py tests
+        $ python3.8 manage.py test
 
 ## Technologies Used
 * Python3.8
@@ -84,7 +76,7 @@ As a user I would like to:
 * CSS(Bootstrap)
 
 ## live link
-['https://nanzalahub.herokuapp.com/']
+['https://perfectpitches.herokuapp.com/']
 
 ## known bugs
 Not any at the moment but am open to suggestion
