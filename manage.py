@@ -4,7 +4,7 @@ from app.models import Pitch
 from  flask_migrate import Migrate
 
 
-app = create_app('productioni')
+app = create_app('production')
 app = create_app('test')
 
 
