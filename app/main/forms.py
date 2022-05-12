@@ -13,3 +13,7 @@ class PitchForm(FlaskForm):
 class UpdateProfile(FlaskForm):
     bio = TextAreaField('Add a little spice to your profile.',validators = [InputRequired()])
     submit = SubmitField('Submit')
+
+class CommentForm(FlaskForm):
+    comment = TextAreaField('Leave a comment:',validators=[InputRequired()])
+    submit = SubmitField('Submit')

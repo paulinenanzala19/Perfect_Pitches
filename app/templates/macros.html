@@ -1,11 +1,26 @@
-{% macro displayPitches(pitches_list)%}
-    {%for pitch in pitches_list%}
+
+{% macro displayPitches(pitches)%}
+{% if pitches %}
+ {%for category in pitches%}
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 review-card">
         <div class="well well-lg">
-            <h4>{{pitch.pitch_title}}</h4>
-            <p>{{pitch.pitch_content}}</p>
-            
+            <h4>{{category.title}}</h4>
+            <p>{{category.post}}</p>
+            <button><a href="{{url_for('main.likes',id=category.id)}}"><i class="fa fa-thumbs-up" style="font-size:18px;color: green"></i>{{category.upvote.count()}}</a></button>
+            <button><a href="{{url_for('main.dislikes',id=category.id)}}"><i class="fa fa-thumbs-down" style="font-size:18px;color: red"></i>{{category.downvote.count()}}</a></button>
+            <button><a href="{{url_for('main.comment',pitch_id=category.id)}}"><i class="fas fa-comments" style="padding-left: 3%; cursor: pointer; color:#34Adeb;;"></i>{{category.comment.count()}}</a></button>
         </div>
     </div>
-    {%endfor%}
+    
+ {%endfor%}
+{% if pitches %}
+<a href="{{url_for('main.create_pitch')}}" class="btn btn-info -center" style="margin-top:2% ;">Create A New Pitch</a>
+{%endif%}
+{%else%}
+<div class="col-12">
+  <h3 style="text-align:center ;color: #2f5280;">No pitches added in this category yet. Be the first!</h3>
+  <a href="{{url_for('main.create_pitch')}}" class="btn btn-info -center" style="margin-top:2% ;">Create A New Pitch</a>
+
+</div>
+{%endif%}
 {%endmacro%}

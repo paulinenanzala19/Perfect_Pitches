@@ -39,12 +39,13 @@ class Pitch(db.Model):
     id = db.Column(db.Integer,primary_key = True)
     title = db.Column(db.String)
     pitch_content = db.Column(db.String(1000))
-    category = db.Column(db.String)
+    category = db.Column(db.String(255), index=True)
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
     post = db.Column(db.Text(), nullable = False)
     upvote=db.relationship('Upvote',backref='pitch',lazy='dynamic')
     downvote=db.relationship('Downvote',backref='pitch',lazy='dynamic')
     comment=db.relationship('Comments',backref='pitch',lazy='dynamic')
+    date_posted = db.Column(db.DateTime,default=datetime.utcnow)
 
 
     
@@ -72,7 +73,7 @@ class Upvote(db.Model):
 
     @classmethod
     def get_upvotes(cls,id):
-        upvotes = Pitch.query.filter_by(pitch_id=id).all()
+        upvotes = cls.query.filter_by(pitch_id=id).all()
         return upvotes
 
     def __repr__(self):
@@ -92,15 +93,29 @@ class Downvote(db.Model):
 
     @classmethod
     def get_downvotes(cls,id):
-        downvotes = Pitch.query.filter_by(pitch_id=id).all()
+        downvotes = cls.query.filter_by(pitch_id=id).all()
         return downvotes
 
-class Comments(db.model):
+
+class Comments(db.Model):
     __tablename__='comments'
     id = db.Column(db.Integer,primary_key = True)
     pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'))
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
-    comment = db.Column(db.text())
+    comment = db.Column(db.Text(),nullable = False)
+
+    def save_comment(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_comments(cls,pitch_id):
+        comments = Comments.query.filter_by(pitch_id=pitch_id).all() 
+
+        return comments 
+
+    def __repr__(self):
+        return f'comment:{self.comment}'
 
 
 @login_manager.user_loader
