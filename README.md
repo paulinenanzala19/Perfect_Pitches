@@ -6,7 +6,7 @@ You want to pitch that idea out? pitch perfect got you!
 Pauline Wafula
 
 ## Description
-Pitch Perfect is a web application that allows a user to create a one minute pitch depending on the category of interest.It has four categories; business,idea,pickuplines and  music. On clicking on the click to view button, it displays pitches posted by other people on the same category.A new user can also log in\register to create a quote under category of choice and also comment on other people pitches.A user can also see the pitches posted through their profile.
+Pitch Perfect is a web application that allows a user to create a one minute pitch depending on the category of interest.It has four categories; business,idea,pickuplines and  music. On clicking on the click to view button, it displays pitches posted by other people on the same category.A new user can also log in\register to create a pitch under category of choice and also comment on other people pitches.A user can also see the pitches posted through their profile.
 
 
 ## User Stories
@@ -39,7 +39,7 @@ As a user I would like to:
 * In your terminal:
 
         $ git clone https://github.com/paulinenanzala19/Perfect_Pitches.git
-        $ cd News
+        $ cd pitches
 
 ## Running the Application
 * Creating the virtual environment
