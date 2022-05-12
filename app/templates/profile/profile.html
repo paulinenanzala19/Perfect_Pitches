@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="container">
-  <div class="row">
+  <div class="row" style="padding-top:4%;">
     <div class="card" style="width: 18rem;">
       {% if user.profile_pic_path %}
       <img class="card-img-top" style="width:200px ; height:200px;" src="{{url_for('static',filename=user.profile_pic_path)}}" alt="Card image cap">

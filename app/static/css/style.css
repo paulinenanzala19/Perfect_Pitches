@@ -36,6 +36,7 @@ body{
 #user{
     width: 50%;
     margin-left: 30%;
+    padding-top: 6%;
     margin-top: -350px;
     background-color: rgba(0, 0, 0, 0.8);
     color: #F6B400;
@@ -64,6 +65,7 @@ body{
     background-color: rgba(0, 0, 0, 0.8);
     color: #F6B400;
     font-weight: bolder;
+    padding-top: 4%;
 }
 #comments h5{
     font-weight: bolder;
@@ -75,4 +77,8 @@ body{
 #btn{
     background-color: rgba(0, 0, 0, 0.8);
     border: 1px solid #F6B400;
+}
+#update{
+    padding-top: 4%;
+    color: #F6B400;
 }
