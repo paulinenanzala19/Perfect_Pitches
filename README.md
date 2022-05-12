@@ -1,5 +1,6 @@
 ## Pitch Perfect
-You want to pitch that idea out? pitch perfect got you!
+If you can pitch it i can hit it, if you can hit it i can catch it
+The most important pitch is strike 1, the next one!
 
 
 ## Author
