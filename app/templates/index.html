@@ -11,29 +11,38 @@
 <title>{{ title }}</title>
 
 {% block content%}
+<div class="container-fluid banner">
+    <div class="row1">
+      <div class="col-md-3"></div>
+      <div class="col-md-6 welcome" id="pitch">
+        <h2 style="text-align:center ;color: #F6B400;">WELCOME TO PITCH<span class="board">PERFECT</span>!</h2>
+        <p style="text-align:center ; padding: 2%;">
+        If you can pitch it i can hit it, if you can hit it i can catch it<br>The most important pitch is strike 1, the next one
+        </p>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </div>
 <div class="row">
-    <div class="col-md-1"></div>
+<div class="col-md-1"></div>
 <div class="col-md-5" style="text-align: center;">
-    <div class="well well-lg">
+    <div class="well well-lg" id="cat">
         <h3>Business Pitches</h3>
         <hr>
-        <p>Make it short. · Make it clear. · Explain who your customers are. · Explain the problem
-            they're facing. </p>
-        
+        <p>Marketing pitches are a business form of romantic proposals!</p>
+            
         <br>
-        <a href="{{url_for('main.business_pitches')}}" class="btn btn-info -center" style="margin-top: 2%;">Click to view</a>
+        <a href="{{url_for('main.business_pitches')}}" class="btn btn-info -center" style="margin-top: 2%;font-weight: bolder;" id="btn">Click to view</a>
     </div>
 </div>
 <div class="col-md-5" style="text-align: center;">
-    <div class="well well-lg">
+    <div class="well well-lg" id="cat">
         <h3>Idea Pitches</h3>
         <hr>
-        <p>Make it short. · Make it clear. · Explain who your customers are. · Explain the problem
-            they're facing. </p>
-        
-       
+        <p>Make your pitch.....perfect<br>Live.Love.Pitch</p>
+            
         <br>
-        <a href="{{url_for('main.idea_pitches')}}" class="btn btn-info -center" style="margin-top: 2%;">Click to view</a>
+        <a href="{{url_for('main.idea_pitches')}}" class="btn btn-info -center" style="margin-top: 2%;font-weight: bolder;" id="btn">Click to view</a>
     </div>
 </div>
 <div class="col-md-1"></div>
@@ -42,26 +51,24 @@
 <div class="row">
     <div class="col-md-1"></div>
 <div class="col-md-5" style="text-align: center;">
-    <div class="well well-lg">
+    <div class="well well-lg" id="cat">
         <h3>Pickup Lines Pitches</h3>
         <hr>
-        <p>Make it short. · Make it clear. · Explain who your customers are. · Explain the problem
-            they're facing. </p>
+        <p>If you were a fruit, youd be a fine apple<br>Is you name WI-FI coz am feeling a connection</p>
+             
         
         <br>
-        <a href="{{url_for('main.pickuplines_pitches')}}" class="btn btn-info -center" style="margin-top:2% ;">Click to view</a>
+        <a href="{{url_for('main.pickuplines_pitches')}}" class="btn btn-info -center" style="margin-top:2% ;font-weight: bolder;" id="btn">Click to view</a>
     </div>
 </div>
 <div class="col-md-5" style="text-align: center;">
-    <div class="well well-lg">
+    <div class="well well-lg" id="cat">
         <h3>Music Pitches</h3>
         <hr>
-        <p>Make it short. · Make it clear. · Explain who your customers are. · Explain the problem
-            they're facing. </p>
-        <button><a href=""><i class="fa fa-thumbs-up" style="font-size:18px;color: green"></i></a></button>
-        <button><a href=""><i class="fa fa-thumbs-down" style="font-size:18px;color: red"></i></a></button>
+        <p>Life is one grand, sweet song, so start the music. Let the Music speak</p>
+           
         <br>
-        <a href="{{url_for('main.music_pitches')}}" class="btn btn-info -center" style="margin-top:2% ;">Click to view</a>
+        <a href="{{url_for('main.music_pitches')}}" class="btn btn-info -center" style="margin-top:2% ; font-weight: bolder;"id="btn">Click to view</a>
     </div>
 </div>
 <div class="col-md-1"></div>

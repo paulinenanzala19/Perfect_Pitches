@@ -2,12 +2,12 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block content %}
-    <div class="container" id="allcomments" >
+    <div class="container" id="comments" >
         <div class="row">
 
             {% if comments %}
                 <div class="col-md-7" >
-                    <h3 class="text-center" id="coms">All comments for the post</h3>
+                    <h3 class="text" id="coms">All comments for the post</h3>
                     {% for comment in comments %}
                        <div class="card w-90 mb-3" >
                            <div class="card-body">

@@ -32,12 +32,12 @@ def idea_pitches():
     
 @main.route('/pitches/pickuplines_pitches')
 def pickuplines_pitches():
-    pitches = Pitch.get_pitches('idea')
+    pitches = Pitch.get_pitches('pickuplines')
     return render_template("pickuplines_pitches.html", pitches = pitches)
 
 @main.route('/pitches/music_pitches')
 def music_pitches():
-    pitches = Pitch.get_pitches('idea')
+    pitches = Pitch.get_pitches('music')
     return render_template("music_pitches.html", pitches = pitches)
 @main.route('/pitch/create', methods=['POST','GET'])
 @login_required
@@ -58,11 +58,13 @@ def create_pitch():
 @main.route('/user/<uname>')
 def profile(uname):
     user = User.query.filter_by(username = uname).first()
+    user_id = current_user._get_current_object().id
+    posts = Pitch.query.filter_by(user_id = user_id).all()
 
     if user is None:
         abort(404)
 
-    return render_template("profile/profile.html", user = user)
+    return render_template("profile/profile.html", user = user,posts=posts)
 
 @main.route('/user/<uname>/update',methods = ['GET','POST'])
 @login_required
@@ -140,3 +142,5 @@ def dislikes(id):
     new_downvote = Downvote(user = current_user, pitch_id=id)
     new_downvote.save_downvote()
     return redirect(url_for('main.index',id = id))
+
+

@@ -1,0 +1,77 @@
+body{
+    background-image: url("https://pikwizard.com/photos/books-business-coffee-computer--e3706c8342c570668c84833a1533ccce-m.jpg");
+   font-family: 'Cormorant Garamond', serif;
+   font-size: 20px;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+#pitch{
+    margin-bottom: 4%;
+}
+#pitch p{
+    color: white ;
+    font-weight: bolder;
+    font-size: 22px;
+}
+#pitch h2{
+    font-weight: 900;
+    font-style: italic;
+    font-size: 40px;
+}
+
+#cat{
+    background-color: rgba(0, 0, 0, 0.8);
+    color:white;
+    font-weight: bolder;
+}
+#cat h4{
+    color: white;
+    font-weight: bolder;
+}
+#cat h3{
+    color: white;
+    font-weight: bolder;
+}
+#user{
+    width: 50%;
+    margin-left: 30%;
+    margin-top: -350px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #F6B400;
+}
+#btn{
+    font-weight: bolder;
+    color: #F6B400;
+}
+#create h2{
+    color:#F6B400 ;
+    font-weight: bolder;
+}
+#create{
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #F6B400;
+}
+#registration{
+    background-color: rgba(0, 0, 0, 0.8);
+    color:#F6B400;
+}
+#login{
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #F6B400;
+}
+#comments{
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #F6B400;
+    font-weight: bolder;
+}
+#comments h5{
+    font-weight: bolder;
+}
+#comments h3{
+    font-weight: bolder;
+    font-size: 30px;
+}
+#btn{
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid #F6B400;
+}

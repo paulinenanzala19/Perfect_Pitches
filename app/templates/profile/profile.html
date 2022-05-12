@@ -5,21 +5,21 @@
   <div class="row">
     <div class="card" style="width: 18rem;">
       {% if user.profile_pic_path %}
-      <img class="card-img-top" src="{{url_for('static',filename=user.profile_pic_path)}}" alt="Card image cap">
+      <img class="card-img-top" style="width:200px ; height:200px;" src="{{url_for('static',filename=user.profile_pic_path)}}" alt="Card image cap">
       {%else%}
-      <p>No profile picture</p>
+      <p style="color:#F6B400 ;">No profile picture</p>
       {% endif %}
       <div class="card-body">
-        <h5 class="card-title">{{user.username| capitalize}}</h5>
+        <h5 class="card-title" style="color:#F6B400 ; font-weight: bolder;">{{user.username | capitalize}}</h5>
         {% if user.bio %}
-        <p class="card-text"><i class="fas fa-quote-left"></i>{{user.bio}}</p>
+        <p class="card-text" style="color:#F6B400 ; font-weight: bolder;"><i class="fas fa-quote-left"></i>{{user.bio}}</p>
         {%else%}
-        <p class="card-text"> {{user.username| capitalize}} has no bio</p>
+        <p class="card-text" style="color: #F6B400; font-weight:bolder"> {{user.username| capitalize}} has no bio</p>
         {% endif %}
         {% if user == current_user %}
         <div class="profile">
           <div class="main">
-            <a href="{{url_for('main.update_profile',uname=user.username)}}">Edit profile</a>
+            <button class="btn btn-sm btn-info" id="btn"><a href="{{url_for('main.update_profile',uname=user.username)}}">Edit profile</a></button>
             <button class="btn btn-sm btn-info" id="btn">upload image</button>
 
           </div>
@@ -27,7 +27,7 @@
             <form  action="{{url_for('main.upload_image',uname=user.username)}}" method="post" enctype = "multipart/form-data">
 
               <input type="file"  name="photo" class="form-control" required>
-              <input type="submit" class="btn btn-sm btn-info">
+              <input type="submit" class="btn btn-sm btn-info" style="font-weight: bolder;"id="btn">
             </form>
           </div>
 
@@ -39,6 +39,23 @@
       </div>
     </div>
   </div>
+  <div class=" text-center well well-lg" id="user">
+    {% if current_user %}
+        <h3>You have {{user.pitches.count()}} Pitches</h3>
+        <hr>
+        {%for p in posts%}
+        <h5>Title: {{p.title}}</h5>
+
+        <p>{{p.post}}</p>
+        <p>{{p.comment.count()}} Comments</p>
+        <hr>
+        {%endfor%}
+        {%else%}
+        <h3>You have ) posts</h3>
+        {%endif%}
+    </div>
+  
+</div>
 
 </div>
 {% endblock %}
